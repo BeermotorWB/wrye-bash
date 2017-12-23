@@ -43,7 +43,6 @@ import archives
 import bash
 import bass
 import bolt
-import bosh
 import bush
 from bolt import GPath, deprint
 from balt import askSave, askOpen, askWarning, showError, showWarning, \
@@ -145,6 +144,7 @@ class BackupSettings(BaseBackupSettings):
 
         #backup save profile settings
         savedir = GPath(u'My Games').join(game)
+        import bosh # FIXME(ut) - move this code out of init
         profiles = [u''] + bosh.SaveInfos.getLocalSaveDirs()
         for profile in profiles:
             pluginsTxt = (u'Saves', profile, u'plugins.txt')
@@ -271,18 +271,18 @@ class RestoreSettings(BaseBackupSettings):
         bash.SetUserPath(tmpBash.s,opts.userPath)
 
         bashIni = bass.GetBashIni(tmpBash.s, reload_=True)
+        import bosh
         bosh.initBosh(opts.personalPath, opts.localAppDataPath, bashIni)
 
         # restore all the settings files
         restore_paths = init_settings_files().keys()
         for dest_dir, back_path in restore_paths:
             full_back_path = temp_dir.join(back_path)
-            if full_back_path.exists():
-                for name in full_back_path.list():
-                    if full_back_path.join(name).isfile():
-                        deprint(GPath(back_path).join(name).s + u' --> '
-                                + dest_dir.join(name).s)
-                        full_back_path.join(name).copyTo(dest_dir.join(name))
+            for name in full_back_path.list():
+                if full_back_path.join(name).isfile():
+                    deprint(GPath(back_path).join(
+                        name).s + u' --> ' + dest_dir.join(name).s)
+                    full_back_path.join(name).copyTo(dest_dir.join(name))
 
         #restore savegame profile settings
         back_path = GPath(u'My Games').join(game, u'Saves')
