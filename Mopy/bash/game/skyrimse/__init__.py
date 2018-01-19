@@ -42,8 +42,6 @@ from .records import MreCell, MreWrld, MreFact, MreAchr, MreDial, MreInfo, \
     MreFlor, MreEyes, MreWeap, MreIngr, MreClfm, MreMesg, MreLigh, MreExpl, \
     MreLcrt, MreStat, MreAmmo, MreSmqn, MreImad, MreSoun, MreAvif, MreCont, \
     MreIpct, MreAspc, MreRela, MreEfsh, MreSnct, MreOtft, MreVoli, MreLens
-from .. import GameInfo
-from ...bolt import struct_pack, struct_unpack
 from ...brec import MreGlob
 from ..skyrim import SkyrimGameInfo
 
@@ -53,9 +51,7 @@ class SkyrimSEGameInfo(SkyrimGameInfo):
     fsName = u'Skyrim Special Edition'
     altName = u'Wrye Smash'
     defaultIniFile = u'Skyrim_Default.ini'
-
     exe = u'SkyrimSE.exe'
-
     regInstallKeys = (
         u'Bethesda Softworks\\Skyrim Special Edition',
         u'Installed Path'
