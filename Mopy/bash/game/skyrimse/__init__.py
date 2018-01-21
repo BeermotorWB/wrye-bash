@@ -134,12 +134,17 @@ dataDirsPlus = {
 
 #--Tags supported by this game
 allTags = sorted((
-    u'Deactivate', u'Delev', u'Invent', u'NoMerge', u'Relev',
+        u'C.Acoustic', u'C.Climate', u'C.Encounter', u'C.ImageSpace', u'C.Light',
+        u'C.Location', u'C.SkyLighting', u'C.Music', u'C.Name', u'C.Owner',
+        u'C.RecordFlags', u'C.Regions', u'C.Water', u'Deactivate', u'Delev',
+        u'Filter', u'Graphics', u'Invent', u'NoMerge', u'Relev', u'Sound',
+        u'Stats', u'Names',
     ))
 
 #--Gui patcher classes available when building a Bashed Patch
 patchers = (
-    u'GmstTweaker', u'ImportInventory', u'ListsMerger', u'PatchMerger',
+		u'CellImporter', u'GmstTweaker', u'ImportInventory', u'ListsMerger', 
+		u'PatchMerger',
 )
 
 #--Plugin format stuff

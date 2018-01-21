@@ -1390,7 +1390,7 @@ class ItemStats:
     def __init__(self,types=None,aliases=None):
         self.class_fid_attr_value = {}
         self.aliases = aliases or {} #--For aliasing mod names
-        if bush.game.fsName == u'Skyrim':
+        if bush.game.fsName == u'Skyrim' or u'Skyrim Special Edition':
             self.attr_type = {'eid':self.sstr,
                               'weight':self.sfloat,
                               'value':self.sint,
